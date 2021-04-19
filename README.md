@@ -6,25 +6,25 @@ npm install github:jsxtools/next-use-content
 
 ## Usage
 
-From a file:
+#### From a file
 
 ```tsx
 import { createMDXContentFromFile } from 'next-mdx-content/server';
 import { useMDXContent, MDXData } from 'next-mdx-content/client';
 
-export default function Page({ mdx: MDXData }) {
-  const MDXContent = useMDXContent(mdx, components);
+export default function Page({ data: MDXData }) {
+  const MDXContent = useMDXContent(data, components);
 
   return (
     <>
-      <h1>{mdx.title}</h1>
+      <h1>{data.title}</h1>
       <MDXContent />
     </>
   )
 }
 
 export async function getStaticProps() {
-  const mdx = await createMDXContentFromFile('/path/to/file.mdx', {
+  const data = await createMDXContentFromFile('/path/to/file.mdx', {
     components: {},
     remarkPlugins: [],
     rehypePlugins: []
@@ -32,27 +32,27 @@ export async function getStaticProps() {
 
   return {
     props: {
-      mdx: {
+      data: {
         title: 'Fallback',
-        ...mdx
+        ...data
       }
     }
   };
 }
 ```
 
-From a string:
+#### From a file
 
 ```tsx
 import { createMDXContent } from 'next-mdx-content/server';
 import { useMDXContent, MDXData } from 'next-mdx-content/client';
 
-export default function Page({ mdx: MDXData }) {
-  const MDXContent = useMDXContent(mdx, components);
+export default function Page({ data: MDXData }) {
+  const MDXContent = useMDXContent(data, components);
 
   return (
     <>
-      <h1>{mdx.title}</h1>
+      <h1>{data.title}</h1>
       <MDXContent />
     </>
   )
@@ -61,29 +61,33 @@ export default function Page({ mdx: MDXData }) {
 export async function getStaticProps() {
   const mdxContents = '---\ntitle: Welcome aboard!\n---\n\n# {title}'
 
-  const mdx = await createMDXContent(mdxContents, {
+  const data = await createMDXContent(mdxContents, {
     components: {},
     remarkPlugins: [],
     rehypePlugins: []
   });
 
-  return { props: { mdx } };
+  return {
+    props: {
+      data: {
+        title: 'Fallback',
+        ...data
+      }
+    }
+  };
 }
 ```
 
-Return only the frontmatter data from a file:
+#### Get Frontmatter data from a file
 
 ```tsx
 import { readMDXDataFromFileSync } from 'next-mdx-content/server';
 // import { readMDXDataFromFile } from 'next-mdx-content/server';
 
 const data = readMDXDataFromFileSync('/path/to/file.mdx')
-
-// Object { "title": "Welcome aboard!" }
 ```
 
-
-Return only the frontmatter data from a string:
+#### Get Frontmatter data from a string
 
 ```tsx
 import { readMDXDataFrom } from 'next-mdx-content/server';
