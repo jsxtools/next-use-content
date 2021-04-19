@@ -1,7 +1,7 @@
 # next-mdx-content
 
 ```sh
-npm install next-use-content
+npm install github:jsxtools/next-use-content
 ```
 
 ## Usage
