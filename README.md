@@ -12,20 +12,20 @@ From a file:
 import { createMDXContentFromFile } from 'next-mdx-content/server';
 import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
 
-export default function Page(props: MDXContentProps) {
+export default function Page(props: { mdx: MDXContentProps }) {
   const MDXContent = useMDXContent(props, components);
 
   return <MDXContent />
 }
 
 export async function getStaticProps() {
-  const props = await createMDXContentFromFile('/path/to/file.mdx', {
+  const mdx = await createMDXContentFromFile('/path/to/file.mdx', {
     components: {},
     remarkPlugins: [],
     rehypePlugins: []
   });
 
-  return { props };
+  return { props: { mdx } };
 }
 ```
 
@@ -44,13 +44,13 @@ export default function Page(props: MDXContentProps) {
 export async function getStaticProps() {
   const mdxContents = '---\ntitle: Welcome aboard!\n---\n\n# {title}'
 
-  const props = await createMDXContent(mdxContents, {
+  const mdx = await createMDXContent(mdxContents, {
     components: {},
     remarkPlugins: [],
     rehypePlugins: []
   });
 
-  return { props };
+  return { props: { mdx } };
 }
 ```
 
