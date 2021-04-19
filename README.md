@@ -54,7 +54,19 @@ export async function getStaticProps() {
 }
 ```
 
-Return only the frontmatter data:
+Return only the frontmatter data from a file:
+
+```tsx
+import { readMDXDataFromFileSync } from 'next-mdx-content/server';
+// import { readMDXDataFromFile } from 'next-mdx-content/server';
+
+const data = readMDXDataFromFileSync('/path/to/file.mdx')
+
+// Object { "title": "Welcome aboard!" }
+```
+
+
+Return only the frontmatter data from a string:
 
 ```tsx
 import { readMDXDataFrom } from 'next-mdx-content/server';
