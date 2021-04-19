@@ -15,7 +15,12 @@ import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
 export default function Page({ mdx: MDXContentProps }) {
   const MDXContent = useMDXContent(mdx, components);
 
-  return <MDXContent />
+  return (
+    <>
+      <h1>{mdx.data.title}</h1>
+      <MDXContent />
+    </>
+  )
 }
 
 export async function getStaticProps() {
@@ -38,7 +43,12 @@ import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
 export default function Page({ mdx: MDXContentProps }) {
   const MDXContent = useMDXContent(mdx, components);
 
-  return <MDXContent />
+  return (
+    <>
+      <h1>{mdx.data.title}</h1>
+      <MDXContent />
+    </>
+  )
 }
 
 export async function getStaticProps() {
