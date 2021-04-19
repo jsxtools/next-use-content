@@ -10,14 +10,14 @@ From a file:
 
 ```tsx
 import { createMDXContentFromFile } from 'next-mdx-content/server';
-import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
+import { useMDXContent, MDXData } from 'next-mdx-content/client';
 
-export default function Page({ mdx: MDXContentProps }) {
+export default function Page({ mdx: MDXData }) {
   const MDXContent = useMDXContent(mdx, components);
 
   return (
     <>
-      <h1>{mdx.data.title}</h1>
+      <h1>{mdx.title}</h1>
       <MDXContent />
     </>
   )
@@ -30,7 +30,14 @@ export async function getStaticProps() {
     rehypePlugins: []
   });
 
-  return { props: { mdx } };
+  return {
+    props: {
+      mdx: {
+        title: 'Fallback',
+        ...mdx
+      }
+    }
+  };
 }
 ```
 
@@ -38,14 +45,14 @@ From a string:
 
 ```tsx
 import { createMDXContent } from 'next-mdx-content/server';
-import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
+import { useMDXContent, MDXData } from 'next-mdx-content/client';
 
-export default function Page({ mdx: MDXContentProps }) {
+export default function Page({ mdx: MDXData }) {
   const MDXContent = useMDXContent(mdx, components);
 
   return (
     <>
-      <h1>{mdx.data.title}</h1>
+      <h1>{mdx.title}</h1>
       <MDXContent />
     </>
   )

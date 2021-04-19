@@ -14,20 +14,11 @@ export interface MDXOptions {
 }
 
 export interface MDXContentProps {
-	data: {
-		[key: string]: any
-	},
-	content: string,
-	rawData: string,
-	arguments: [string, string, string, string]
-}
-
-export interface MDXContentPropsWithFile extends MDXContentProps {
-	path: string
+	[key: string]: any
 }
 
 export function createMDXContentFromFile(content: string, opts: MDXOptions): MDXContentProps
 
-export function createMDXContentFromString(content: string, opts: MDXOptions): MDXContentPropsWithFile
+export function createMDXContentFromString(content: string, opts: MDXOptions): MDXContentProps
 
 export var createMDXContent = createMDXContentFromFile

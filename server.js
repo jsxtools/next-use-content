@@ -28,9 +28,7 @@ async function createMDXContentFromString(/** @type {string} */ content, /** @ty
 	const compiled = await compileMdx(config)
 	const minified = await minifyJs(compiled)
 
-	parsed.arguments = getFunctionConstructorArguments(minified)
-
-	return parsed
+	return Object.assign({}, parsed.data, { '#': getFunctionConstructorArguments(minified) })
 }
 
 /** @type {import('./server').createMDXContentFromFile} */

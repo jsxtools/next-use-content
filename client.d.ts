@@ -5,16 +5,7 @@ export interface MDXComponents {
 }
 
 export interface MDXContentProps {
-	data: {
-		[key: string]: any
-	},
-	content: string,
-	rawData: string,
-	arguments: [string, string, string, string]
-}
-
-export interface MDXContentPropsWithFile extends MDXContentProps {
-	path: string
+	[key: string]: any
 }
 
 export function useMDXContent(serverData: MDXContentProps, components: MDXComponents): React.ReactNode
