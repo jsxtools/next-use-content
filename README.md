@@ -12,8 +12,8 @@ From a file:
 import { createMDXContentFromFile } from 'next-mdx-content/server';
 import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
 
-export default function Page(props: { mdx: MDXContentProps }) {
-  const MDXContent = useMDXContent(props, components);
+export default function Page({ mdx: MDXContentProps }) {
+  const MDXContent = useMDXContent(mdx, components);
 
   return <MDXContent />
 }
@@ -35,8 +35,8 @@ From a string:
 import { createMDXContent } from 'next-mdx-content/server';
 import { useMDXContent, MDXContentProps } from 'next-mdx-content/client';
 
-export default function Page(props: MDXContentProps) {
-  const MDXContent = useMDXContent(props, components);
+export default function Page({ mdx: MDXContentProps }) {
+  const MDXContent = useMDXContent(mdx, components);
 
   return <MDXContent />
 }
