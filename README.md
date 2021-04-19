@@ -1,5 +1,7 @@
 # next-mdx-content
 
+**next-mdx-content** lets you load MDX content through getStaticProps in NextJS.
+
 ```sh
 npm install github:jsxtools/next-use-content
 ```

@@ -1,10 +1,10 @@
 {
   "name": "next-mdx-content",
-  "version": "0.0.0",
-  "description": "WIP",
+  "version": "0.1.0",
+  "description": "Load MDX content through getStaticProps in NextJS",
   "files": [
-    "create.js",
-    "use.js",
+    "client.js",
+    "server.js",
     "lib"
   ],
   "keywords": [
