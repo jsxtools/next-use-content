@@ -13,12 +13,12 @@ export interface MDXOptions {
 	remarkPlugins?: Pluggable[]
 }
 
-export interface MDXContentProps {
+export interface MDXData {
 	[key: string]: any
 }
 
-export function createMDXContentFromFile(content: string, opts: MDXOptions): MDXContentProps
+export function createMDXContentFromFile(content: string, opts: MDXOptions): MDXData
 
-export function createMDXContentFromString(content: string, opts: MDXOptions): MDXContentProps
+export function createMDXContentFromString(content: string, opts: MDXOptions): MDXData
 
 export var createMDXContent = createMDXContentFromFile

@@ -4,8 +4,8 @@ export interface MDXComponents {
 	[componentName: string]: React.ReactNode
 }
 
-export interface MDXContentProps {
+export interface MDXData {
 	[key: string]: any
 }
 
-export function useMDXContent(serverData: MDXContentProps, components: MDXComponents): React.ReactNode
+export function useMDXContent(serverData: MDXData, components: MDXComponents): React.ReactNode
