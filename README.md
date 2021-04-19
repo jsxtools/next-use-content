@@ -42,7 +42,7 @@ export default function Page(props: MDXContentProps) {
 }
 
 export async function getStaticProps() {
-  const mdxContents = '---\ntitle\n---\n\n# {title}'
+  const mdxContents = '---\ntitle: Welcome aboard!\n---\n\n# {title}'
 
   const props = await createMDXContent(mdxContents, {
     components: {},
@@ -52,4 +52,16 @@ export async function getStaticProps() {
 
   return { props };
 }
+```
+
+Return only the frontmatter data:
+
+```tsx
+import { readMDXDataFrom } from 'next-mdx-content/server';
+
+const mdxContents = '---\ntitle: Welcome aboard!\n---\n\n# {title}'
+
+const data = readMDXDataFrom(mdxContents)
+
+// Object { "title": "Welcome aboard!" }
 ```
