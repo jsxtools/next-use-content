@@ -7,6 +7,16 @@
     "server.js",
     "lib"
   ],
+  "contributors": [
+    "John Otander <johnotander@gmail.com> (https://johnotander.com)",
+    "Tim Neutkens <tim@vercel.com>",
+    "Matija Marohnić <matija.marohnic@gmail.com>",
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "JounQin <admin@1stg.me> (https://www.1stg.me)",
+    "Christian Murphy <christian.murphy.42@gmail.com>",
+    "Jonathan Neal <jonathantneal@hotmail.com> (https://jonneal.com)"
+  ],
+  "license": "MIT",
   "keywords": [
     "mdx",
     "markdown",
@@ -35,6 +45,5 @@
   "peerDependencies": {
     "react": ">=16.x <=17.x",
     "react-dom": ">=16.x <=17.x"
-  },
-  "gitHead": "bf7deab69996449cb99c2217dff75e65855eb2c1"
+  }
 }

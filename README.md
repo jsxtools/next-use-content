@@ -1,6 +1,6 @@
 # next-mdx-content
 
-**next-mdx-content** lets you load MDX content through getStaticProps in NextJS.
+**next-mdx-content** lets you load MDX content through [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) in [NextJS](https://nextjs.org).
 
 ```sh
 npm install github:jsxtools/next-use-content
@@ -100,3 +100,12 @@ const data = readMDXDataFrom(mdxContents)
 
 // Object { "title": "Welcome aboard!" }
 ```
+
+## How it works
+
+This package is a remix of [@mdx-js/mdx](https://www.npmjs.com/package/@mdx-js/mdx).
+It is changed to convert an MDX file into a [Function Component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) written in plain JavaScript using `createMDXContent`.
+The serialized constructor arguments for this component are sent over as static props and reassembled by `useMDXContent`.
+
+Additionally, [Front Matter](https://jekyllrb.com/docs/front-matter/) is
+extracted from the MDX file, available as data to the application and the MDX file itself.
